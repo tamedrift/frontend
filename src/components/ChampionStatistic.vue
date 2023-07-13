@@ -4,27 +4,42 @@
   >
     <td scope="col" class="px-6 py-3 flex">
       <img
-        class="flex-none inline-block w-10 h-10 sm:w-12 sm:h-12 rounded-full mt-1"
-        src="https://game.gtimg.cn/images/lgamem/act/lrlib/img/HeadIcon/H_S_10001.png"
+        class="inline-block h-14 w-14 rounded-md border-2 border-gray-150"
+        :src="champion.avatar"
         alt="Champion Avatar"
       />
       <div class="ml-3 py-3">
-        <p class="text-sm font-medium text-gray-800">Ashe</p>
-        <p class="text-xs text-gray-500">The Frost Archer</p>
+        <p class="text-sm font-medium text-gray-800">{{ champion.name }}</p>
+        <p class="text-xs text-gray-500">TBD</p>
       </div>
     </td>
-    <td scope="col" class="px-6 py-3 text-center">1</td>
-    <td scope="col" class="px-6 py-3 text-right">{{ champion_stat.win_rate }}</td>
-    <td scope="col" class="px-6 py-3 text-right">{{ champion_stat.appear_rate }}</td>
-    <td scope="col" class="px-6 py-3 text-right">{{ champion_stat.forbid_rate }}</td>
+    <td scope="col" class="px-6 py-3 text-center">{{ champion_stat.tier }}</td>
+    <td scope="col" class="px-6 py-3 text-right">{{ parseFloat(champion_stat.win_rate * 100).toFixed(2) }}%</td>
+    <td scope="col" class="px-6 py-3 text-right">{{ parseFloat(champion_stat.appear_rate * 100).toFixed(2) }}%</td>
+    <td scope="col" class="px-6 py-3 text-right">{{ parseFloat(champion_stat.forbid_rate * 100).toFixed(2) }}%</td>
   </tr>
 </template>
 
 <script>
 export default {
   name: 'ChampionStatistic',
+  data() {
+    return {
+      champion: Object,
+    }
+  },
   props: {
     champion_stat: Object
+  },
+  methods: {
+    async fetchChampion(id) {
+      const res = await fetch(`api/wildrift_cn/champions/${id}`);
+      const data = await res.json()
+      return data
+    },
+  },
+  async mounted() {
+    this.champion = await this.fetchChampion(this.champion_stat.hero_id)
   }
 }
 </script>

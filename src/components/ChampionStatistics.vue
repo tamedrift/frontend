@@ -29,6 +29,6 @@ export default {
   },
   props: {
     champion_stats: Array
-  }
+  },
 }
 </script>
