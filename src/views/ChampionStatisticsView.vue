@@ -5,8 +5,7 @@ export default {
   name: 'ChampionStatisticView',
   data() {
     return {
-      champion_stats: [],
-      champions: []
+      champion_stats: []
     }
   },
   components: {
@@ -14,21 +13,14 @@ export default {
   },
   methods: {
     async fetchChampionStats() {
-      const res = await fetch('api/wildrift_cn/champion_statistics')
+      const res = await fetch('api/wildrift_cn/champion_statistics?league=1&lane=1')
 
       const data = await res.json()
-      return data
-    },
-    async fetchChampions() {
-      const res = await fetch('api/wildrift_cn/champions')
-
-      const data = await res.json()
-      return data
+      return data.results
     }
   },
   async created() {
-    ;(this.champion_stats = await this.fetchChampionStats()),
-      (this.champions = await this.fetchChampions())
+    this.champion_stats = await this.fetchChampionStats()
   }
 }
 </script>

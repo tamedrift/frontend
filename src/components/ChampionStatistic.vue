@@ -5,8 +5,8 @@
     <td scope="col" class="px-6 py-3 flex">
       <img
         class="flex-none inline-block w-10 h-10 sm:w-12 sm:h-12 rounded-full mt-1"
-        src="https://cdn.tailkit.com/media/placeholders/avatar-mEZ3PoFGs_k-160x160.jpg"
-        alt="User Avatar"
+        src="https://game.gtimg.cn/images/lgamem/act/lrlib/img/HeadIcon/H_S_10001.png"
+        alt="Champion Avatar"
       />
       <div class="ml-3 py-3">
         <p class="text-sm font-medium text-gray-800">Ashe</p>

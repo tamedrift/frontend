@@ -12,7 +12,7 @@
     <tbody>
       <ChampionStatistic
         :champion_stat="stat"
-        :key="stat.pk"
+        :key="stat.hero_id"
         v-for="stat in champion_stats"
       ></ChampionStatistic>
     </tbody>
