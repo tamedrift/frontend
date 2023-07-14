@@ -1,16 +1,17 @@
 <template>
   <tr
-    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+    class="border-b bg-gray-800 border-gray-700 hover:bg-gray-900 text-gray-300"
   >
+    <td scope="col" class="pl-6 py-3 text-center">{{ index }}</td>
     <td scope="col" class="px-6 py-3 flex">
       <img
-        class="inline-block h-14 w-14 rounded-md border-2 border-gray-150"
+        class="inline-block h-14 w-14 rounded-md border-2 border-gray-600"
         :src="champion.avatar"
         alt="Champion Avatar"
       />
-      <div class="ml-3 py-3">
-        <p class="text-sm font-medium text-gray-800">{{ champion.name }}</p>
-        <p class="text-xs text-gray-500">TBD</p>
+      <div class="ml-3 py-3 text-gra">
+        <p class="text-sm font-medium">{{ champion.name }}</p>
+        <p class="text-xs text-gray-400">TBD</p>
       </div>
     </td>
     <td scope="col" class="px-6 py-3 text-center">{{ champion_stat.tier }}</td>
@@ -29,7 +30,8 @@ export default {
     }
   },
   props: {
-    champion_stat: Object
+    champion_stat: Object,
+    index: Number,
   },
   methods: {
     async fetchChampion(id) {

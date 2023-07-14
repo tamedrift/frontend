@@ -1,7 +1,8 @@
 <template>
   <table class="table-auto w-full">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <thead class="text-xs h-14 uppercase bg-gray-900 text-gray-300">
       <tr>
+        <th></th>
         <th class="px-6 py-3 text-left">Champion</th>
         <th class="px-6 py-3 text-center">Tier</th>
         <th class="px-6 py-3 text-right">Win Rate</th>
@@ -12,8 +13,9 @@
     <tbody>
       <ChampionStatistic
         :champion_stat="stat"
-        :key="stat.hero_id"
-        v-for="stat in champion_stats"
+        :key="i"
+        :index="i + 1"
+        v-for="[i, stat] in champion_stats.entries()"
       ></ChampionStatistic>
     </tbody>
   </table>
