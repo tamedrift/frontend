@@ -3,7 +3,7 @@
     class="border-b bg-gray-800 border-gray-700 hover:bg-gray-900 text-gray-300"
   >
     <td scope="col" class="pl-6 py-3 text-center">{{ index }}</td>
-    <td scope="col" class="px-6 py-3 flex">
+    <td scope="col" class="pl-6 py-3 flex ">
       <img
         class="inline-block h-14 w-14 rounded-md border-2 border-gray-600"
         :src="champion.avatar"
@@ -15,19 +15,24 @@
       </div>
     </td>
     <td scope="col" class="px-6 py-3 text-center">{{ champion_stat.tier }}</td>
-    <td scope="col" class="px-6 py-3 text-right">{{ parseFloat(champion_stat.win_rate * 100).toFixed(2) }}%</td>
-    <td scope="col" class="px-6 py-3 text-right">{{ parseFloat(champion_stat.appear_rate * 100).toFixed(2) }}%</td>
-    <td scope="col" class="px-6 py-3 text-right">{{ parseFloat(champion_stat.forbid_rate * 100).toFixed(2) }}%</td>
+    <ChampionRatio :ratio="champion_stat.win_rate"></ChampionRatio>
+    <ChampionRatio :ratio="champion_stat.appear_rate"></ChampionRatio>
+    <ChampionRatio :ratio="champion_stat.forbid_rate"></ChampionRatio>
   </tr>
 </template>
 
 <script>
+import ChampionRatio from './ChampionRatio.vue';
+
 export default {
   name: 'ChampionStatistic',
   data() {
     return {
       champion: Object,
     }
+  },
+  components: {
+      ChampionRatio
   },
   props: {
     champion_stat: Object,

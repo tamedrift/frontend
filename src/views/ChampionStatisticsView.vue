@@ -15,7 +15,7 @@ export default {
     async fetchChampionStats() {
       const res = await fetch('api/wildrift_cn/champion_statistics?league=1&lane=1')
       const data = await res.json()
-      return data.results
+      return data
     }
   },
   async created() {
