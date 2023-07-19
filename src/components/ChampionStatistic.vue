@@ -15,9 +15,21 @@
       </div>
     </td>
     <td scope="col" class="px-6 py-3 text-center">{{ champion_stat.tier }}</td>
-    <ChampionRatio :ratio="champion_stat.win_rate"></ChampionRatio>
-    <ChampionRatio :ratio="champion_stat.appear_rate"></ChampionRatio>
-    <ChampionRatio :ratio="champion_stat.forbid_rate"></ChampionRatio>
+    <ChampionRatio 
+    :ratio="champion_stat.win_rate" 
+    :percentile="champion_stat.win_pct"
+    color="bg-indigo-700"
+    />
+    <ChampionRatio 
+    :ratio="champion_stat.appear_rate" 
+    :percentile="champion_stat.appear_pct"
+    color="bg-emerald-700"
+    />
+    <ChampionRatio 
+    :ratio="champion_stat.forbid_rate" 
+    :percentile="champion_stat.forbid_pct"
+    color="bg-rose-700"
+    />
   </tr>
 </template>
 
