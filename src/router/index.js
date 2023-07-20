@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import ChampionStatistics from '../views/ChampionStatisticsView.vue'
+import TiersView from '../views/TiersView.vue'
 import Home from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -11,9 +11,9 @@ const router = createRouter({
       component: Home
     },
     {
-      path: '/champions',
-      name: 'champions',
-      component: ChampionStatistics
+      path: '/tiers',
+      name: 'tiers',
+      component: TiersView
     }
   ]
 })
