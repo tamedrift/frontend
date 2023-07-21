@@ -13,8 +13,8 @@
           </tr>
         </thead>
         <tbody>
-          <TierListRow :champion_ratios="champion_ratios" :key="i" :index="i + 1"
-            v-for="[i, champion_ratios] in tier_list.entries()"></TierListRow>
+          <TierListRow :champion_ratios="champion_ratios" :key="champion_ratios.hero_id" :index="index + 1"
+            v-for="(champion_ratios, index) in tier_list"></TierListRow>
         </tbody>
       </table>
     </div>
@@ -23,17 +23,6 @@
 
 <script>
 import TierListRow from './TierListRow.vue'
-
-// this is how you sort on a property
-// homes.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-
-// computed: {
-//   sortedData: function() {
-//      return this.data.sort(function(a, b) {
-//         return a.name > b.name;
-//      });
-//   }
-// }
 
 export default {
   name: 'TierList',

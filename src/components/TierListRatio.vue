@@ -13,7 +13,7 @@
 export default {
   name: 'TierListRatio',
   props: {
-    ratio: Number,
+    ratio: String,
     percentile: Number,
     color: String,
   },
