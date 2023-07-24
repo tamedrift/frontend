@@ -59,19 +59,23 @@ export default {
 </script>
 
 <template>
-  <TierListTitle></TierListTitle>
-  <TabFilter :filters="[
-    { key: 1, value: 'Diamond+' },
-    { key: 2, value: 'Master+' },
-    { key: 3, value: 'Grandmaster+' },
-    { key: 4, value: 'Challenger' },
-  ]" name="league" :selected='league'></TabFilter>
-  <TabFilter :filters="[
-    { key: 1, value: 'Mid' },
-    { key: 2, value: 'Solo' },
-    { key: 3, value: 'Duo' },
-    { key: 4, value: 'Support' },
-    { key: 5, value: 'Jungle' },
-  ]" name="lane" :selected='lane'></TabFilter>
-  <TierList :tier_list="tier_list"></TierList>
+  <div class="container mx-auto py-10 w-3/5">
+    <TierListTitle></TierListTitle>
+    <div class="flex py-3 h-20 justify-between">
+      <TabFilter class="justify-start" :filters="[
+        { key: 1, value: 'Diamond+' },
+        { key: 2, value: 'Master+' },
+        { key: 3, value: 'Grandmaster+' },
+        { key: 4, value: 'Challenger' },
+      ]" name="league" :selected='league'></TabFilter>
+      <TabFilter class="justify-end" :filters="[
+        { key: 1, value: 'Mid' },
+        { key: 2, value: 'Solo' },
+        { key: 3, value: 'Duo' },
+        { key: 4, value: 'Support' },
+        { key: 5, value: 'Jungle' },
+      ]" name="lane" :selected='lane'></TabFilter>
+    </div>
+    <TierList :tier_list="tier_list"></TierList>
+  </div>
 </template>

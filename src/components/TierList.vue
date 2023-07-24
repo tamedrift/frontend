@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto py-10 w-3/5">
+  
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table class="table-auto w-full">
         <thead class="text-xs h-14 uppercase bg-gray-900 text-gray-300">
@@ -18,7 +18,6 @@
         </tbody>
       </table>
     </div>
-  </div>
 </template>
 
 <script>

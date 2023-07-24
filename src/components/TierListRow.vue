@@ -1,5 +1,5 @@
 <template>
-  <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-900 text-gray-300">
+  <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-700 text-gray-300">
     <td scope="col" class="pl-6 py-3 text-center">{{ index }}</td>
     <td scope="col" class="pl-6 py-3 flex ">
       <img class="inline-block h-14 w-14 rounded-md border-2 border-gray-600" :src="champion.avatar"
