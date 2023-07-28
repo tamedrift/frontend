@@ -6,7 +6,7 @@
         alt="Champion Avatar" />
       <div class="ml-3 py-3 text-gra">
         <p class="text-sm font-medium">{{ champion.name }}</p>
-        <p class="text-xs text-gray-400">TBD</p>
+        <p class="text-xs text-gray-400"></p>
       </div>
     </td>
     <td scope="col" class="px-6 py-3 text-center">{{ champion_ratios.tier }}</td>

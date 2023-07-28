@@ -62,11 +62,6 @@ export default {
               <router-link to="/about"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">About</router-link>
             </div>
-            <div class="py-6">
-              <router-link to="#"
-                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800">Log
-                in</router-link>
-            </div>
           </div>
         </div>
       </div>
