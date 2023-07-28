@@ -1,6 +1,11 @@
 <script>
 export default {
-  name: 'HeaderComponent'
+  name: 'HeaderComponent',
+  data() {
+    return {
+      logo: new URL(`../assets/logo.png`, import.meta.url).href
+    }
+  }
 }
 </script>
 
@@ -10,7 +15,7 @@ export default {
       <div class="flex lg:flex-1">
         <router-link to="/" class="-m-1.5 p-1.5">
           <span class="sr-only">Tamed Rift</span>
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="" />
+          <img class="h-12 w-auto" :src="logo" alt="" />
         </router-link>
       </div>
       <div class="flex lg:hidden">
@@ -42,7 +47,7 @@ export default {
         <div class="flex items-center justify-between">
           <router-link to="#" class="-m-1.5 p-1.5">
             <span class="sr-only">Tamed Rift</span>
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="" />
+            <img class="h-8 w-auto" :src="logo" alt="" />
           </router-link>
           <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400">
             <span class="sr-only">Close menu</span>
