@@ -12,6 +12,19 @@ export default {
       error: null,
       league: 1,
       lane: 2,
+      league_filters: {
+        1: 'Diamond+',
+        2: 'Master+',
+        3: 'Grandmaster+',
+        4: 'Challenger',
+      },
+      lane_filters: {
+        1: 'Mid',
+        2: 'Solo',
+        3: 'Duo',
+        4: 'Support',
+        5: 'Jungle',
+      }
     }
   },
   components: {
@@ -60,21 +73,11 @@ export default {
 
 <template>
   <div class="container mx-auto py-10 w-3/5">
-    <TierListTitle></TierListTitle>
+    <TierListTitle :league="league" :lane="lane" :leagues="league_filters" :lanes="lane_filters">
+    </TierListTitle>
     <div class="flex py-3 h-20 justify-between">
-      <TabFilter class="justify-start" :filters="[
-        { key: 1, value: 'Diamond+' },
-        { key: 2, value: 'Master+' },
-        { key: 3, value: 'Grandmaster+' },
-        { key: 4, value: 'Challenger' },
-      ]" name="league" :selected='league'></TabFilter>
-      <TabFilter class="justify-end" :filters="[
-        { key: 1, value: 'Mid' },
-        { key: 2, value: 'Solo' },
-        { key: 3, value: 'Duo' },
-        { key: 4, value: 'Support' },
-        { key: 5, value: 'Jungle' },
-      ]" name="lane" :selected='lane'></TabFilter>
+      <TabFilter class="justify-start" :filters="league_filters" name="league" :selected='league'></TabFilter>
+      <TabFilter class="justify-end" :filters="lane_filters" name="lane" :selected='lane'></TabFilter>
     </div>
     <TierList :tier_list="tier_list"></TierList>
   </div>
