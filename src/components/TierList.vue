@@ -56,8 +56,8 @@ export default {
           <th :key="item.key" v-for="item in sort_cols" class="px-6 py-3"
             :class="{ 'text-indigo-600': sort_key == item.key }">
             <span class="flex justify-end">
-              <ArrowUpIcon class="h-4 px-1" :class="{ hidden: sort_key != item.key || reverse }" />
-              <ArrowDownIcon class="h-4 px-1" :class="{ hidden: sort_key != item.key || !reverse }" />
+              <ArrowUpIcon class="h-4 px-1" :class="{ hidden: sort_key != item.key || !reverse }" />
+              <ArrowDownIcon class="h-4 px-1" :class="{ hidden: sort_key != item.key || reverse }" />
               <router-link to="" @click="sort_by(item.key)">{{ item.column }}</router-link>
             </span>
           </th>

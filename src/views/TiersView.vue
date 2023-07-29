@@ -3,11 +3,13 @@ import TierList from '../components/TierList.vue'
 import TabFilter from '../components/TabFilter.vue'
 
 import TierListTitle from '../components/TierListTitle.vue'
+
 export default {
   name: 'TiersView',
   data() {
     return {
       tier_list: [],
+      last_date: "",
       loading: false,
       error: null,
       league: 1,
@@ -51,15 +53,25 @@ export default {
     },
     async fetchTierList() {
       const res = await fetch(
-        `api/wildrift_cn/tier_list?league=${this.league}&lane=${this.lane}`
+        `api/wildrift_cn/tier_list?league=${this.league}&lane=${this.lane}&dtstatdate=${this.last_date}`
       )
       const data = await res.json()
 
       this.loading = false
       return data
+    },
+    async fetchLastDate() {
+      const res = await fetch(
+        `api/wildrift_cn/last_date`
+      )
+      const data = await res.json()
+
+      return data.last_date
     }
   },
   async created() {
+    this.last_date = await this.fetchLastDate()
+
     this.$watch(
       () => this.$route.query,
       () => {
