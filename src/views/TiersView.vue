@@ -51,7 +51,7 @@ export default {
     },
     async fetchTierList() {
       const res = await fetch(
-        `api/wildrift_cn/champion_statistics?league=${this.league}&lane=${this.lane}`
+        `api/wildrift_cn/tier_list?league=${this.league}&lane=${this.lane}`
       )
       const data = await res.json()
 
