@@ -7,10 +7,11 @@ export default {
   name: 'TierList',
   props: {
     tier_list: Object,
-    ArrowDownIcon, ArrowUpIcon
   },
   components: {
     TierListRow,
+    ArrowDownIcon,
+    ArrowUpIcon
   },
   data() {
     return {
