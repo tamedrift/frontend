@@ -26,7 +26,8 @@ export default {
         3: 'Duo',
         4: 'Support',
         5: 'Jungle',
-      }
+      },
+      api: import.meta.env.VITE_API_URL,
     }
   },
   components: {
@@ -53,7 +54,7 @@ export default {
     },
     async fetchTierList() {
       const res = await fetch(
-        `api/wildrift_cn/tier_list?league=${this.league}&lane=${this.lane}&dtstatdate=${this.last_date}`
+        `${this.api}/tier_list?league=${this.league}&lane=${this.lane}&dtstatdate=${this.last_date}`
       )
       const data = await res.json()
 
@@ -61,9 +62,7 @@ export default {
       return data
     },
     async fetchLastDate() {
-      const res = await fetch(
-        `api/wildrift_cn/last_date`
-      )
+      const res = await fetch(`${this.api}/last_date`)
       const data = await res.json()
 
       return data.last_date

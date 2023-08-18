@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     async fetchChampion(id) {
-      const res = await fetch(`api/wildrift_cn/champions/${id}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/champions/${id}`);
       const data = await res.json()
       return data
     },
