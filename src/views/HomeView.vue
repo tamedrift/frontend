@@ -11,7 +11,7 @@ export default {
 
 <template>
   <div class="relative isolate overflow-hidden">
-    <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
+    <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-20">
       <div class="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
         <h1 class="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">Tame the Wild Rift
         </h1>

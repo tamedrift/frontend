@@ -9,17 +9,17 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: HomeView
     },
     {
       path: '/tiers',
-      name: 'tiers',
+      name: 'Tiers',
       component: TiersView
     },
     {
       path: '/about',
-      name: 'about',
+      name: 'About',
       component: AboutView
     },
     {
