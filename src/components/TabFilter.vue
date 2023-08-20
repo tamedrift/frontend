@@ -9,10 +9,10 @@ export default {
   methods: {
     filterTable(param) {
       if (this.name === 'league') {
-        this.$router.push({ name: 'tiers', query: { league: param } })
+        this.$router.push({ name: 'Tiers', query: { league: param } })
       }
       else {
-        this.$router.push({ name: 'tiers', query: { lane: param } })
+        this.$router.push({ name: 'Tiers', query: { lane: param } })
       }
     },
     getImage(image) {
