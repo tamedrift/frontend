@@ -9,7 +9,8 @@
         <p class="text-xs text-gray-400"></p>
       </div>
     </td>
-    <td scope="col" class="px-6 py-3 text-center">{{ champion_ratios.tier }}</td>
+    <td scope="col" :class="getTextColor(champion_ratios.tier)" class="px-6 py-3 text-center font-bold">{{
+      this.tiers[champion_ratios.tier] }}</td>
     <TierListRatio :ratio="champion_ratios.win_rate" :percentile="champion_ratios.win_pct" color="bg-indigo-700" />
     <TierListRatio :ratio="champion_ratios.appear_rate" :percentile="champion_ratios.appear_pct" color="bg-emerald-700" />
     <TierListRatio :ratio="champion_ratios.forbid_rate" :percentile="champion_ratios.forbid_pct" color="bg-rose-700" />
@@ -24,6 +25,13 @@ export default {
   data() {
     return {
       champion: Object,
+      tiers: {
+        1: "S",
+        2: "A",
+        3: "B",
+        4: "C",
+        5: "D"
+      }
     }
   },
   components: {
@@ -39,9 +47,23 @@ export default {
       const data = await res.json()
       return data
     },
+    getTextColor(hue) {
+      if (hue == 1) {
+        return "text-amber-500"
+      } else if (hue == 2) {
+        return "text-emerald-500"
+      } else if (hue == 3) {
+        return "text-emerald-300"
+      } else if (hue == 4) {
+        return "text-rose-300"
+      } else {
+        return "text-rose-500"
+      }
+    }
   },
   async mounted() {
     this.champion = await this.fetchChampion(this.champion_ratios.hero_id)
-  }
+  },
+
 }
 </script>
