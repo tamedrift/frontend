@@ -1,8 +1,6 @@
 <script>
 import TierList from '../components/TierList.vue'
-import TabFilter from '../components/TabFilter.vue'
-
-import TierListTitle from '../components/TierListTitle.vue'
+import ListBox from '../components/ListBox.vue'
 
 export default {
   name: 'TiersView',
@@ -13,27 +11,26 @@ export default {
       loading: false,
       error: null,
       league: 1,
-      lane: 2,
-      league_filters: {
-        1: 'Diamond+',
-        2: 'Master+',
-        3: 'Grandmaster+',
-        4: 'Challenger',
-      },
-      lane_filters: {
-        1: 'Mid',
-        2: 'Solo',
-        3: 'Duo',
-        4: 'Support',
-        5: 'Jungle',
-      },
+      lane: 1,
+      leagues: [
+        { name: 'Diamond', key: 1, image: 'ranks/s13/mini/diamond.svg' },
+        { name: 'Master', key: 2, image: 'ranks/s13/mini/master.svg' },
+        { name: 'Grandmaster', key: 3, image: 'ranks/s13/mini/grandmaster.svg' },
+        { name: 'Challenger', key: 4, image: 'ranks/s13/mini/challenger.svg' }
+      ],
+      lanes: [
+        { name: 'Mid', key: 1, image: 'roles/mid.svg' },
+        { name: 'Solo', key: 2, image: 'roles/top.svg' },
+        { name: 'Duo', key: 3, image: 'roles/bot.svg' },
+        { name: 'Support', key: 4, image: 'roles/supp.svg' },
+        { name: 'Jungle', key: 5, image: 'roles/jung.svg' }
+      ],
       api: import.meta.env.VITE_API_URL,
     }
   },
   components: {
     TierList,
-    TierListTitle,
-    TabFilter
+    ListBox
   },
   methods: {
     async fetchData() {
@@ -84,11 +81,11 @@ export default {
 
 <template>
   <div class="container mx-auto py-10 w-3/5">
-    <TierListTitle :league="league" :lane="lane" :leagues="league_filters" :lanes="lane_filters">
-    </TierListTitle>
-    <div class="flex py-3 h-20 justify-between">
-      <TabFilter class="justify-start" :filters="league_filters" name="league" :selected='league'></TabFilter>
-      <TabFilter class="justify-end" :filters="lane_filters" name="lane" :selected='lane'></TabFilter>
+    <!-- <TierListTitle :league="league" :lane="lane" :leagues="league_filters" :lanes="lane_filters">
+    </TierListTitle> -->
+    <div class="flex py-3 space-x-4 sm:flex-row">
+      <ListBox class="z-20" :filters="leagues" category="league"></ListBox>
+      <ListBox class="z-10" :filters="lanes" category="lane"></ListBox>
     </div>
     <TierList :tier_list="tier_list"></TierList>
   </div>

@@ -18,10 +18,8 @@ export default {
   <div class="relative isolate pt-14">
     <BackgroundPolygons top_position="-top-40" sm_top_position="sm:-top-80" left_position="left-[calc(50%-11rem)]"
       sm_left_position="sm:left-[calc(50%-30rem)]"></BackgroundPolygons>
-
     <RouterView></RouterView>
-
     <BackgroundPolygons top_position="top-[calc(100%-13rem)]" sm_top_position="sm:top-[calc(100%-30rem)]"
-      left_position="left-[calc(50%+3rem)]" sm_left_position="sm:left-[calc(50%+36rem)]"></BackgroundPolygons>
+      left_position="left-[calc(50%+30rem)]" sm_left_position="sm:left-[calc(50%+36rem)]"></BackgroundPolygons>
   </div>
 </template>
