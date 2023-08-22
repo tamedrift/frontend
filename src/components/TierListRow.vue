@@ -2,7 +2,7 @@
   <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-700 text-gray-300">
     <td scope="col" class="pl-6 py-3 text-center">{{ index }}</td>
     <td scope="col" class="pl-6 py-3 items-center flex">
-      <img class="inline-block h-12 w-12 mr-3 rounded-md border-2 border-gray-600" :src="champion.avatar"
+      <img class="inline-block h-12 w-12 mr-3 rounded-md border-2 border-gray-600" :src="getChampionAvatar(champion.name)"
         alt="Champion Avatar" />
       <!-- <div class="ml-3 py-3 text-gray items-center"> -->
       <p class="text-sm font-medium mr-3">{{ champion.name }}</p>
@@ -58,6 +58,10 @@ export default {
       } else {
         return "text-rose-500"
       }
+    },
+    getChampionAvatar(name) {
+      name = name.replace(/\s+/g, "")
+      return `http://ddragon.leagueoflegends.com/cdn/13.16.1/img/champion/${name}.png`
     }
   },
   async mounted() {
