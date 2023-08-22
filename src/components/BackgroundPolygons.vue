@@ -1,5 +1,5 @@
 <template>
-  <div :class="[top_position, sm_top_position]" class="absolute inset-x-0 -z-10 transform-gpu overflow-hidden blur-3xl"
+  <div :class="[top_position, sm_top_position]" class="fixed inset-x-0 -z-10 transform-gpu overflow-hidden blur-3xl"
     aria-hidden="true">
     <div :class="[left_position, sm_left_position]"
       class="relative aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:w-[72.1875rem]"
