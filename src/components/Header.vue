@@ -38,8 +38,12 @@ export default {
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex flex-shrink-0 items-center">
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-              alt="Your Company" />
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="7" fill="#6366F1" />
+              <path d="M8 20H24" stroke="#E3E7EE" stroke-width="2" stroke-linecap="round" />
+              <path d="M8 12.3703C12.9836 7.44011 18.4918 17.8194 24 12.3703" stroke="#E3E7EE" stroke-width="2"
+                stroke-linecap="round" />
+            </svg>
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
