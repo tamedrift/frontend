@@ -1,6 +1,7 @@
 <script>
 import TierList from '../components/TierList.vue'
 import ListBox from '../components/ListBox.vue'
+import TierListTitle from '../components/TierListTitle.vue'
 
 export default {
   name: 'TiersView',
@@ -30,7 +31,8 @@ export default {
   },
   components: {
     TierList,
-    ListBox
+    ListBox,
+    TierListTitle
   },
   methods: {
     async fetchData() {
@@ -80,9 +82,8 @@ export default {
 </script>
 
 <template>
-  <div class="container mx-auto py-10 w-3/5">
-    <!-- <TierListTitle :league="league" :lane="lane" :leagues="league_filters" :lanes="lane_filters">
-    </TierListTitle> -->
+  <div class="container mx-auto w-3/5">
+    <TierListTitle :league="league" :lane="lane" :date="last_date"></TierListTitle>
     <div class="flex py-3 space-x-4 sm:flex-row">
       <ListBox class="z-20" :filters="leagues" category="league"></ListBox>
       <ListBox class="z-10" :filters="lanes" category="lane"></ListBox>
