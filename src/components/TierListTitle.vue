@@ -1,8 +1,9 @@
 <template>
-    <div class="py-3 px-3 text-left flex">
-        <h1 class="text-xl font-bold tracking-tight text-white sm:text-3xl">Wild Rift Tier List</h1>
-        <h1 class="ml-2 tracking-tight text-white sm:text-3xl">for {{ this.lanes[lane] }}, {{ this.leagues[league] }}</h1>
-        <div class="bg-gray-800 px-3 py-1 ml-6 rounded-lg text-sm bg-opacity-50 leading-8 text-gray-300">
+    <div class="py-3 px-3 text-left lg:flex">
+        <h1 class="text-xl tracking-tight text-white sm:text-3xl">
+            <b>Wild Rift Tier List</b> for {{ this.lanes[lane] }}, {{ this.leagues[league] }}
+        </h1>
+        <div class="inline-block bg-gray-800 px-3 py-1 lg:ml-6 rounded-lg text-sm bg-opacity-50 leading-8 text-gray-300 relative">
             {{ this.formatDate(date) }}
         </div>
     </div>
