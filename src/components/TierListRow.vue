@@ -1,15 +1,14 @@
 <template>
   <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-700 text-gray-300">
     <td scope="col" class="pl-6 py-3 text-center">{{ index }}</td>
-    <td scope="col" class="pl-6 py-3 flex ">
-      <img class="inline-block h-14 w-14 rounded-md border-2 border-gray-600" :src="champion.avatar"
+    <td scope="col" class="pl-6 py-3 items-center flex">
+      <img class="inline-block h-12 w-12 mr-3 rounded-md border-2 border-gray-600" :src="champion.avatar"
         alt="Champion Avatar" />
-      <div class="ml-3 py-3 text-gra">
-        <p class="text-sm font-medium">{{ champion.name }}</p>
-        <p class="text-xs text-gray-400"></p>
-      </div>
+      <!-- <div class="ml-3 py-3 text-gray items-center"> -->
+      <p class="text-sm font-medium mr-3">{{ champion.name }}</p>
+      <!-- </div> -->
     </td>
-    <td scope="col" :class="getTextColor(champion_ratios.tier)" class="px-6 py-3 text-center font-bold">{{
+    <td scope="col" :class="getTextColor(champion_ratios.tier)" class="py-3 text-center font-bold">{{
       this.tiers[champion_ratios.tier] }}</td>
     <TierListRatio :ratio="champion_ratios.win_rate" :percentile="champion_ratios.win_pct" color="bg-indigo-700" />
     <TierListRatio :ratio="champion_ratios.appear_rate" :percentile="champion_ratios.appear_pct" color="bg-emerald-700" />
