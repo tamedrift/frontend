@@ -3,7 +3,7 @@
     <td scope="col" class="pl-6 py-3 text-center">{{ index }}</td>
     <td scope="col" class="pl-6 py-3 items-center flex">
       <img class="inline-block h-12 w-12 mr-3 rounded-md border-2 border-gray-600" :src="getChampionAvatar(champion.name)"
-        alt="Champion Avatar" />
+        :alt="champion.name" />
       <!-- <div class="ml-3 py-3 text-gray items-center"> -->
       <p class="text-sm font-medium mr-3">{{ champion.name }}</p>
       <!-- </div> -->
@@ -61,7 +61,7 @@ export default {
     },
     getChampionAvatar(name) {
       name = name.replace(/\s+/g, "")
-      return `http://ddragon.leagueoflegends.com/cdn/13.16.1/img/champion/${name}.png`
+      return `https://ddragon.leagueoflegends.com/cdn/13.16.1/img/champion/${name}.png`
     }
   },
   async mounted() {
