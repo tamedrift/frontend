@@ -82,7 +82,7 @@ export default {
 </script>
 
 <template>
-  <div class="container mx-auto w-3/5">
+  <div class="container mx-auto sm:w-3/5">
     <TierListTitle :league="league" :lane="lane" :date="last_date"></TierListTitle>
     <div class="flex py-3 space-x-4 sm:flex-row">
       <ListBox class="z-20" :filters="leagues" category="league"></ListBox>
