@@ -10,9 +10,9 @@
     </td>
     <td scope="col" :class="getTextColor(champion_ratios.tier)" class="py-3 text-center font-bold">{{
       this.tiers[champion_ratios.tier] }}</td>
-    <TierListRatio :ratio="champion_ratios.win_rate" :percentile="champion_ratios.win_pct" color="bg-indigo-700" />
-    <TierListRatio :ratio="champion_ratios.appear_rate" :percentile="champion_ratios.appear_pct" color="bg-emerald-700" />
-    <TierListRatio :ratio="champion_ratios.forbid_rate" :percentile="champion_ratios.forbid_pct" color="bg-rose-700" />
+    <TierListRatio :barWidth="champion_ratios.win_pct * 10" :ratio="champion_ratios.win_rate" color="bg-indigo-700" />
+    <TierListRatio :barWidth="champion_ratios.appear_pct * 20" :ratio="champion_ratios.appear_rate" color="bg-emerald-700" />
+    <TierListRatio :barWidth="champion_ratios.forbid_pct * 20" :ratio="champion_ratios.forbid_rate" color="bg-rose-700" />
   </tr>
 </template>
 

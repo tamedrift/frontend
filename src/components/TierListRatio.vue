@@ -14,13 +14,10 @@ export default {
   name: 'TierListRatio',
   props: {
     ratio: String,
-    percentile: Number,
     color: String,
+    barWidth: Number
   },
   computed: {
-    barWidth() {
-      return this.percentile * 10
-    },
     numPercentage() {
       return parseFloat(this.ratio * 100).toFixed(2)
     }
