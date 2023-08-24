@@ -11,7 +11,8 @@
     <td scope="col" :class="getTextColor(champion_ratios.tier)" class="py-3 text-center font-bold">{{
       this.tiers[champion_ratios.tier] }}</td>
     <TierListRatio :barWidth="champion_ratios.win_pct * 10" :ratio="champion_ratios.win_rate" color="bg-indigo-700" />
-    <TierListRatio :barWidth="champion_ratios.appear_pct * 20" :ratio="champion_ratios.appear_rate" color="bg-emerald-700" />
+    <TierListRatio :barWidth="champion_ratios.appear_pct * 20" :ratio="champion_ratios.appear_rate"
+      color="bg-emerald-700" />
     <TierListRatio :barWidth="champion_ratios.forbid_pct * 20" :ratio="champion_ratios.forbid_rate" color="bg-rose-700" />
   </tr>
 </template>
@@ -60,7 +61,11 @@ export default {
       }
     },
     getChampionAvatar(name) {
-      name = name.replace(/\s+/g, "")
+      // Get rid of non alphabetical
+      name = name.replace(/[^a-zA-Z]/g, '');
+      if (name == "Wukong") {
+        name = "MonkeyKing"
+      }
       return `https://ddragon.leagueoflegends.com/cdn/13.16.1/img/champion/${name}.png`
     }
   },
