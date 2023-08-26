@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       tier_list: [],
+      champions: {},
       last_date: "",
       loading: false,
       error: null,
@@ -65,10 +66,20 @@ export default {
       const data = await res.json()
 
       return data.last_date
+    },
+    async fetchChampions() {
+      const res = await fetch(`${this.api}/champions`)
+      const data = await res.json()
+      const transformedData = data.reduce((result, item) => {
+        result[item.heroId] = item;
+        return result;
+      }, {})
+      return transformedData
     }
   },
   async created() {
     this.last_date = await this.fetchLastDate()
+    this.champions = await this.fetchChampions()
 
     this.$watch(
       () => this.$route.query,
@@ -88,6 +99,6 @@ export default {
       <ListBox class="z-20" :filters="leagues" category="league"></ListBox>
       <ListBox class="z-10" :filters="lanes" category="lane"></ListBox>
     </div>
-    <TierList :tier_list="tier_list"></TierList>
+    <TierList :tier_list="tier_list" :champions="champions"></TierList>
   </div>
 </template>

@@ -2,11 +2,9 @@
   <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-700 text-gray-300">
     <td scope="col" class="pl-6 py-3 text-center">{{ index }}</td>
     <td scope="col" class="pl-6 py-3 items-center flex">
-      <img class="inline-block h-12 w-12 mr-3 rounded-md border-2 border-gray-600" :src="getChampionAvatar(champion.name)"
-        :alt="champion.name" />
-      <!-- <div class="ml-3 py-3 text-gray items-center"> -->
-      <p class="text-sm font-medium mr-3">{{ champion.name }}</p>
-      <!-- </div> -->
+      <img class="inline-block h-12 w-12 mr-3 rounded-md border-2 border-gray-600"
+        :src="getChampionAvatar(this.champion.name)" :alt="this.champion.name" />
+      <p class="text-sm font-medium mr-3">{{ this.champion.name }}</p>
     </td>
     <td scope="col" :class="getTextColor(champion_ratios.tier)" class="py-3 text-center font-bold">{{
       this.tiers[champion_ratios.tier] }}</td>
@@ -24,7 +22,6 @@ export default {
   name: 'TierListRow',
   data() {
     return {
-      champion: Object,
       tiers: {
         1: "S",
         2: "A",
@@ -40,13 +37,9 @@ export default {
   props: {
     champion_ratios: Object,
     index: Number,
+    champion: Object
   },
   methods: {
-    async fetchChampion(id) {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/champions/${id}`);
-      const data = await res.json()
-      return data
-    },
     getTextColor(hue) {
       if (hue == 1) {
         return "text-amber-500"
@@ -69,9 +62,5 @@ export default {
       return `https://ddragon.leagueoflegends.com/cdn/13.16.1/img/champion/${name}.png`
     }
   },
-  async mounted() {
-    this.champion = await this.fetchChampion(this.champion_ratios.hero_id)
-  },
-
 }
 </script>

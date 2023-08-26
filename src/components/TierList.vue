@@ -7,6 +7,7 @@ export default {
   name: 'TierList',
   props: {
     tier_list: Object,
+    champions: Object,
   },
   components: {
     TierListRow,
@@ -70,8 +71,9 @@ export default {
         </tr>
       </thead>
       <tbody>
-        <TierListRow :champion_ratios="champion_ratios" :key="champion_ratios.hero_id" :index="index + 1"
-          v-for="(champion_ratios, index) in sorted_tier_list"></TierListRow>
+        <TierListRow :champion="champions[champion_ratios.hero_id]" :champion_ratios="champion_ratios"
+          :key="champion_ratios.hero_id" :index="index + 1" v-for="(champion_ratios, index) in sorted_tier_list">
+        </TierListRow>
       </tbody>
     </table>
   </div>
