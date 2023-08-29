@@ -4,6 +4,7 @@ import HeaderComponent from './components/Header.vue'
 import BackgroundPolygons from './components/BackgroundPolygons.vue';
 import Footer from './components/Footer.vue';
 
+
 export default {
   name: 'HomeView',
   components: {
